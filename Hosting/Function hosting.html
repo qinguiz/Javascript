@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Function hosting</title>
+	<script>
+		foo();	//只有函数声明才会“提升”到顶部，不包括函数表达式！
+		function foo(){
+			alert('This is a function');
+		}
+
+		foo2();	//This is not a function
+		var foo2 = function(){
+			alert('This is a foo2');
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
