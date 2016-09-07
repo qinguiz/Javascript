@@ -4,14 +4,26 @@
 	<meta charset="UTF-8">
 	<title>for of</title>
 	<script>
-		var arr = [3,4,5];
-		for(var i in arr){
-			console.log(i) // 0,1,2
+		function myFunc(theObject){
+			theObject.make = 'Toyota';
 		}
+		var mycar = { make:'BMW'}
+		var x,y;
+		x = mycar.make;
+		// alert(x) //BMW
 
-		for(var j of arr){
-			console.log(j); //  3,4,5
-		}
+		myFunc(mycar);
+		y = mycar.make;//Toyota
+		x = mycar.make //toyata
+		alert(x) 
+
+		/*
+		参数是一个具体的值时，该参数被传入函数，被调用函数改变的这个值，不会影响到全局或调用的函数
+		*/
+		/*
+		如果你传递一个对象作为参数，而函数改变了这个对象的属性，这样的改变对函数外部是可见的
+		*/
+
 	</script>
 </head>
 <body>

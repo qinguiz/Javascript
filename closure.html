@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包</title>
+	<script>
+		function ouput(x){
+			function insert(y){  //每个嵌套函数都会产生一个闭包，内部函数可以访问外部函数的变量，外部函数不能访问内部函数的变量。
+				return x + y;
+			}
+			return insert;
+		}
+		console.log(ouput(3)(2)) //5
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
