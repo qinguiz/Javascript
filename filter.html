@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>filter</title>
+	<script>
+		var a1 = ['a', 10, 'b', 20, 'c', 30];
+		var a2 = a1.filter(function(item){  //过滤，返回类型为数字的值
+			return typeof item == 'number';
+		})
+		console.log(a2); //Array [ 10, 20, 30 ]
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

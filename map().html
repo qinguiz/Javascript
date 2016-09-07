@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>map</title>
+	<script>
+		var a = ['a','b','c'];
+		var a2 = a.map(function(item){  //map就是对数组对象里的每个元素进行callback函数调用，然后把全部的返回值放到一个数组里
+			return item.toUpperCase();
+		});
+		console.log(a2); //Array [ "A", "B", "C" ]
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

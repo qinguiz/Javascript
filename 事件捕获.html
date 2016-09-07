@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间捕获</title>
+	<script>
+		window.onload = function(){
+			document.getElementById('myDiv').addEventListener('click',myf,true);//true表示开启useCapture，开启捕获，默认false冒泡事件
+		}
+		function myf(){
+			this.style.backgroundColor = 'red';
+		}
+	</script>
+</head>
+<body>
+	<div id="myDiv">
+		abc
+	</div>
+</body>
+</html>
