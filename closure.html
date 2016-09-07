@@ -5,7 +5,7 @@
 	<title>闭包</title>
 	<script>
 		function ouput(x){
-			function insert(y){  //每个嵌套函数都会产生一个闭包，内部函数可以访问外部函数的变量，外部函数不能访问内部函数的变量。
+			function insert(y){  //每个嵌套函数都会产生一个闭包，内部函数可以访问外部函数的变量，外部函数不能访问内部函数的变量。多层嵌套函数时，产生域链，最里层函数可以访问最外层函数的变量
 				return x + y;
 			}
 			return insert;
