@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSON</title>
+	<script>
+		window.onload = function(){
+			var objJson = {
+			'name':'qingz',
+			'age':19,
+			'addr':'ZhongShan',
+			'phone':13610483188
+		}
+		document.getElementById('name').innerHTML = objJson.name;
+		document.getElementById('age').innerHTML = objJson.age;
+		document.getElementById('addr').innerHTML = objJson.addr;
+		document.getElementById('phone').innerHTML = objJson.phone;
+		}
+	</script>
+</head>
+<body>
+	<p>
+		Name: <span id="name"></span><br>
+		Age: <span id="age"></span><br>
+		Address: <span id="addr"></span><br>
+		Phone: <span id="phone"></span>
+	</p>
+</body>
+</html>
