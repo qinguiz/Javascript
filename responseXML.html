@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>responseXML</title>
+	<script>
+		function loadXMLDoc(){
+			var xmlhttp;
+			var xmlDoc,x,i,txt
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+			}else{
+				xmlhttp = new ActiveXObject("Microsoft.HTTPXML");
+			}
+			xmlhttp.onreadystatechange = function(){
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					xmlDoc = xmlhttp.responseXML;
+					txt = "";
+					x = xmlDoc.getElementsByTagName("ARTIST");
+					for(i=0;i<x.length;i++){
+						txt = txt + x[i].childNodes[0].nodeValue + "<br>";
+					}
+					document.getElementById('myDiv').innerHTML = txt;
+				}
+			}
+			xmlhttp.open("GET","ajax_info.txt",true)
+			xmlhttp.send();
+		}
+	</script>
+</head>
+<body>
+	<div id="myDiv"><h2>ajax</h2></div>
+	<button type="button" onclick="loadXMLDoc()">修改内容</button>
+</body>
+</html>
