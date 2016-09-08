@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getElementsByClassName</title>
+</head>
+<body>
+	<ul id="ul">
+		<li class="box">abc</li>
+		<li class="box">bcd</li>
+		<li>efg</li>
+		<li>hij</li>
+		<li>klm</li>
+		<li>nop</li>
+	</ul>
+</body>
+<script>
+    //只适用于新版本的浏览器
+	/*var oUl = document.getElementById('ul');  
+	var aBox = oUl.getElementsByClassName('box');
+	for(var i=0;i<aBox.length;i++){
+		console.log(aBox[i])
+	}*/
+
+	//任何浏览器都适用的获取class方法
+	function getElementsByClassName(node,classname){
+		if (node.getElementsByClassName) {
+			return node.getElementsByClassName(classname);
+		}else{
+			var results = [];
+			var elems = node.getElementsByTagName('*')
+			for(var i=0;i<elems.length;i++){
+				if (elems[i].className.indexOf(classname) != -1) {
+					results[results.length] = elems[i];
+				}
+			}
+			return results;
+		}
+	}
+	var oUl = document.getElementById('ul')
+	var aBox = getElementsByClassName(oUl,'box')
+	console.log(aBox)
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getAttribute</title>
+</head>
+<body>
+	<ul id="ul">
+		<li title="first" class="box">abc</li>
+		<li class="box">bcd</li>
+		<li>efg</li>
+		<li title="middle">hij</li>
+		<li>klm</li>
+		<li title="last">nop</li>
+	</ul>
+</body>
+<script>
+	var oUl = document.getElementById('ul');
+	var aLi = oUl.getElementsByTagName('li');
+	for(var i=0;i<aLi.length;i++){
+		var txt = aLi[i].getAttribute('title');
+		if (txt) {
+			console.log(txt);
+		}
+	}
+</script>
+</html>

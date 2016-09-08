@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getElementsByTagName</title>
+</head>
+<body>
+	<ul id="ul">
+		<li>abc</li>
+		<li>bcd</li>
+		<li>efg</li>
+		<li>hij</li>
+		<li>klm</li>
+		<li>nop</li>
+	</ul>
+</body>
+<script>
+	for(var i=0;i<document.getElementsByTagName('li').length;i++){
+		console.log(document.getElementsByTagName('li')[i]);
+	}
+</script>
+</html>
