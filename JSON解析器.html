@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSON解析器</title>
+	<script>
+		window.onload = function(){
+			var txt = '{"employees":['+
+			'{"firstName":"John","lastName":"Doe"},'+
+			'{"firstName":"Anna","lastName":"Smith"},'+
+			'{"firstName":"Peter","lastName":"Jones"}'+
+			']}'
+			var obj = JSON.parse(txt);
+			document.getElementById('fname').innerHTML = obj.employees[1].firstName;
+			document.getElementById('lname').innerHTML = obj.employees[1].lastName;
+		}
+	</script>
+</head>
+<body>
+	First Name: <span id="fname"></span><br>
+	Last Name:  <span id="lname"></span>
+</body>
+</html>
