@@ -10,16 +10,17 @@
 	<h1>Snapshots</h1>
 	<ul>
 		<li>
-			<a href="images/1.jpg" onclick="showPic(this);return false">King</a>
+		<!-- return false 阻止默认事件，阻止a链接的href默认事件(弹出新窗口) -->
+			<a class="showPic" href="images/1.jpg">King</a>
 		</li>
 		<li>
-			<a href="images/2.jpg" onclick="showPic(this);return false">Wheel&Fortune</a>
+			<a class="showPic" href="images/2.jpg">Wheel&Fortune</a>
 		</li>
 		<li>
-			<a href="images/3.jpg" onclick="showPic(this);return false">The Magician</a>
+			<a class="showPic" href="images/3.jpg">The Magician</a>
 		</li>
 		<li>
-			<a href="images/4.jpg" onclick="showPic(this);return false">The high priestess</a>
+			<a class="showPic" href="images/4.jpg">The high priestess</a>
 		</li>
 	</ul>
 	<img src="images/replaceholder.png" id="replaceholder" alt="" width="300">
