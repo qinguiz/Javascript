@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>createElement</title>
+	<script>
+		function addLoadEvent(func){
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			}else{
+				window.onload = function(){
+					oldonload();
+					func();
+				}
+			}
+		}
+		var para = document.createElement('p'); //DOM动态创建一个元素节点（文档碎片）还没有添加到节点树上。
+		
+
+	</script>
+</head>
+<body>
+	<div id="testdiv"></div>
+</body>
+</html>

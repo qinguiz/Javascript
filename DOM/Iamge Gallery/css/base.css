@@ -25,6 +25,7 @@ li{
 img{
 	display: block;
 	clear: both;
+	width: 300px;
 }
 #imagegallery{
 	list-style: none;
