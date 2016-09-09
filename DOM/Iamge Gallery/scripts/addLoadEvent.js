@@ -7,12 +7,6 @@ function showPic(elems){
 		description.firstChild.nodeValue = text;
 	}
 
-// function countBodyChildren(){
-// 	var body_element = document.getElementsByTagName("body")[0];
-
-// }
-// window.onload = countBodyChildren;
-
 var links = function getElementsByClassName(node,classname){
 	if (node.getElementsByClassName) {
 		return node.getElementsByClassName(classname);
@@ -28,7 +22,7 @@ var links = function getElementsByClassName(node,classname){
 	}
 }
 
-function abc(){
+function prepareGallery(){
 	if (!document.getElementsByTagName || !document.getElementById) return false; //检测当前浏览器是否支持DOM,不支持则返回,平稳退化
 	if (!document.getElementById("imagegallery")) return false;  //平稳退化，不让javascript对结构有所依赖
 	var oUl = document.getElementById("imagegallery");
@@ -42,5 +36,16 @@ for(var i=0;i<aA.length;i++){
 	}
 }
 }
-// window.onload = countBodyChildren;
-// window.onload = abc; //onload事件只有最后一个才会被执行
+
+function addLoadEvent(func){
+	var oldonload = window.onload; //把window.onload事件处理函数的值存入变量oldonload;
+	if (typeof window.onload != 'function') {
+		window.onload = func; //如果这个处理函数没有绑定任何函数，就把新函数添加给它；
+	}else{
+		window.onload = function(){ //如果这个处理函数已经绑定了一些函数，就把新函数追加到现有指令的末尾
+			oldonload();
+			func();
+		}
+	}
+}
+addLoadEvent(prepareGallery);
