@@ -1,10 +1,14 @@
 function showPic(elems){
+	if (!document.getElementById("replaceholder")) {return false;}
 		var source = elems.getAttribute("href");
 		var replaceholder = document.getElementById("replaceholder");
 		replaceholder.setAttribute("src",source);
+	if (document.getElementById("description")) {
 		var text = elems.firstChild.nodeValue;
 		var description = document.getElementById("description");
 		description.firstChild.nodeValue = text;
+		}
+		return true;
 	}
 
 // function countBodyChildren(){
@@ -36,8 +40,8 @@ function abc(){
 for(var i=0;i<aA.length;i++){
 	if (aA[i].getAttribute("class")=="showPic") {
 		aA[i].onclick = function(){
-			showPic(this);
-			return false;
+			return !showPic(this); //当showPic返回false时，取反，启用a链接的默认事件，否则关闭默认事件
+			// return false;
 		}
 	}
 }

@@ -1,26 +1,17 @@
 function showPic(elems){
+	if (!document.getElementById("replaceholder")) { return false; }
 		var source = elems.getAttribute("href");
 		var replaceholder = document.getElementById("replaceholder");
+		if (replaceholder.nodeName != "IMG") {return false;} //检测是否是图片
 		replaceholder.setAttribute("src",source);
+	if (document.getElementById("description")) {
 		var text = elems.firstChild.nodeValue;
 		var description = document.getElementById("description");
+		if (description.firstChild.nodeType != 3) {return false;} //检查是否是文本节点
 		description.firstChild.nodeValue = text;
-	}
-
-var links = function getElementsByClassName(node,classname){
-	if (node.getElementsByClassName) {
-		return node.getElementsByClassName(classname);
-	}else{
-		var results = [];
-		var elems = node.getElementsByTagName("*");
-		for(var i=0;i<elems.length;i++){
-			if (elems[i].className.indexOf(classname) != -1) {
-				results[results.length] = elems[i];
-			}
 		}
-		return results
+		return true;
 	}
-}
 
 function prepareGallery(){
 	if (!document.getElementsByTagName || !document.getElementById) return false; //检测当前浏览器是否支持DOM,不支持则返回,平稳退化
@@ -30,9 +21,10 @@ function prepareGallery(){
 for(var i=0;i<aA.length;i++){
 	if (aA[i].getAttribute("class")=="showPic") {
 		aA[i].onclick = function(){
-			showPic(this);
-			return false;
+			return showPic(this) ? false : true;
+			// return false;
 		}
+		// aA[i].onkeypress = aA[i].onclick; onkeypress是触发onclick，所以不用写onkeypress也是可以的
 	}
 }
 }

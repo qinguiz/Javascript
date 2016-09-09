@@ -5,23 +5,25 @@
 	<title>Image Gallery</title>
 	<!-- <script src="scripts/showPic.js"></script> -->
 	<script src="scripts/addLoadEvent.js"></script>
-	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/base.css" media="screen">
 </head>
 <body>
 	<h1>Snapshots</h1>
 	<ul id="imagegallery">
 		<li>
 		<!-- return false 阻止默认事件，阻止a链接的href默认事件(弹出新窗口) -->
-			<a class="showPic" href="images/1.jpg">King</a>
+			<a class="showPic" href="images/1.jpg">
+				<img src="images/1.jpg" alt="">
+			</a>
 		</li>
 		<li>
-			<a class="showPic" href="images/2.jpg">Wheel&Fortune</a>
+			<a class="showPic" href="images/2.jpg"><img src="images/2.jpg" alt=""></a>
 		</li>
 		<li>
-			<a class="showPic" href="images/3.jpg">The Magician</a>
+			<a class="showPic" href="images/3.jpg"><img src="images/3.jpg" alt=""></a>
 		</li>
 		<li>
-			<a class="showPic" href="images/4.jpg">The high priestess</a>
+			<a class="showPic" href="images/4.jpg"><img src="images/4.jpg" alt=""></a>
 		</li>
 	</ul>
 	<img src="images/replaceholder.png" id="replaceholder" alt="" width="300">
