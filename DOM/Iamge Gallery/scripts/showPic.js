@@ -55,5 +55,14 @@ function createElem(){
 	// document.getElementsByTagName('body')[0].appendChild(placeHolder);
 	// document.getElementsByTagName('body')[0].appendChild(description);
 }
+
+function insertAfter(newElement,targetElement){
+	var parent = targetElement.parentNode;
+	if (parent.lastChild == targetElement) {
+		parent.appendChild(newElement);
+	}else{
+		parent.insertBefore(newElement,targetElement.nextSibling);
+	}
+}
 addLoadEvent(prepareGallery);
 addLoadEvent(createElem);
