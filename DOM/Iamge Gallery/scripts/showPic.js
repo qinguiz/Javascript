@@ -29,8 +29,10 @@ var links = function getElementsByClassName(node,classname){
 }
 
 function abc(){
-	if (!document.getElementsByTagName) return false;
-	var aA = document.getElementsByTagName("a");
+	if (!document.getElementsByTagName || !document.getElementById) return false; //检测当前浏览器是否支持DOM,不支持则返回,平稳退化
+	if (!document.getElementById("imagegallery")) return false;  //平稳退化，不让javascript对结构有所依赖
+	var oUl = document.getElementById("imagegallery");
+	var aA = oUl.getElementsByTagName("a");
 for(var i=0;i<aA.length;i++){
 	if (aA[i].getAttribute("class")=="showPic") {
 		aA[i].onclick = function(){
@@ -40,4 +42,5 @@ for(var i=0;i<aA.length;i++){
 	}
 }
 }
-window.onload = abc;
+// window.onload = countBodyChildren;
+window.onload = abc; //onload事件只有最后一个才会被执行
