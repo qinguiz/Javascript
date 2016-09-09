@@ -41,6 +41,10 @@ function addLoadEvent(func){
 }
 
 function createElem(){
+	if (!document.createElement) {return false;}
+	if (!document.createTextNode) {return false;}
+	if (!document.getElementById) {return false;}
+	if (!document.getElementById('imagegallery')) {return false;}
 	var gallery = document.getElementById('imagegallery');
 
 	var placeHolder = document.createElement('img');
@@ -50,10 +54,12 @@ function createElem(){
 	description.setAttribute('id','description');
 	var desctext = document.createTextNode('Choose an image');
 	description.appendChild(desctext);
-	gallery.parentNode.insertBefore(placeHolder,gallery);
-	gallery.parentNode.insertBefore(description,gallery);
+	// gallery.parentNode.insertBefore(placeHolder,gallery);
+	// gallery.parentNode.insertBefore(description,gallery);
 	// document.getElementsByTagName('body')[0].appendChild(placeHolder);
 	// document.getElementsByTagName('body')[0].appendChild(description);
+	insertAfter(placeHolder,gallery);
+	insertAfter(description,placeHolder);
 }
 
 function insertAfter(newElement,targetElement){
