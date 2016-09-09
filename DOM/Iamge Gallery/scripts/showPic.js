@@ -41,6 +41,8 @@ function addLoadEvent(func){
 }
 
 function createElem(){
+	var gallery = document.getElementById('imagegallery');
+
 	var placeHolder = document.createElement('img');
 	placeHolder.setAttribute('id','replaceholder');
 	placeHolder.setAttribute('src','images/replaceholder.png')
@@ -48,8 +50,10 @@ function createElem(){
 	description.setAttribute('id','description');
 	var desctext = document.createTextNode('Choose an image');
 	description.appendChild(desctext);
-	document.getElementsByTagName('body')[0].appendChild(placeHolder);
-	document.getElementsByTagName('body')[0].appendChild(description);
+	gallery.parentNode.insertBefore(placeHolder,gallery);
+	gallery.parentNode.insertBefore(description,gallery);
+	// document.getElementsByTagName('body')[0].appendChild(placeHolder);
+	// document.getElementsByTagName('body')[0].appendChild(description);
 }
 addLoadEvent(prepareGallery);
 addLoadEvent(createElem);
