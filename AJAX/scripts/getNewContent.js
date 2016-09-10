@@ -4,6 +4,7 @@ function getNewContent(){
 		request.open('GET','example.txt',true);
 		request.onreadystatechange = function(){ //处理响应
 			if (request.readyState == 4) {
+				alert("Request Received")
 				var para = document.createElement('p');
 				var txt = document.createTextNode(request.responseText);
 				para.appendChild(txt);
@@ -14,5 +15,6 @@ function getNewContent(){
 	}else{
 		alert('Sorry,your browser doesn\'t support XMLHttpRequest');
 	}
+	alert("Function Done")
 }
 addLoadEvent(getNewContent);
