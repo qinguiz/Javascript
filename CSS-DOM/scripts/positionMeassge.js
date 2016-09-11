@@ -5,13 +5,13 @@ function positionMessage(){
 	elem.style.position = "absolute";
 	elem.style.left = "50px";
 	elem.style.top = "100px";
-	moveElement("message",200,100,20)
+	moveElement("message",800,200,20)
 	if (!document.getElementById("message2")) {return false;}
 	var elem2 = document.getElementById("message2");
 	elem2.style.position = "absolute";
 	elem2.style.left = "50px";
 	elem2.style.top = "50px";
-	moveElement("message2",120,120,20)
+	moveElement("message2",800,400,20)
 }
 
 function moveMessage(){
