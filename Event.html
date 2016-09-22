@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Event</title>
+</head>
+<body>
+	<div id="div1">
+		<input type="button" id="btn1" value="按钮1" onclick="alert('Hello World')">
+		<input type="button" id="btn2" value="按钮2">
+		<input type="button" id="btn3" value="按钮3">
+	</div>
+	<script>
+		function showMes(){
+			alert("sliby")
+		}
+		//0级事件
+		var btn2 = document.querySelector("#btn2");
+		//添加时间
+		btn2.onclick = function (){
+			alert("Hello World2");
+		}
+		//删除事件
+		btn2.onclick = null;
+
+		//2级事件
+		var btn3 = document.querySelector("#btn3");
+		//添加事件
+		btn3.addEventListener("click",showMes,false);
+		btn3.addEventListener("click",function(){
+			alert("我的脸就在这里，你来打我呀~,哎呦~好气噢~~~~")
+		},false)
+		//删除事件
+		// btn3.removeEventListener("click"showMes);
+	</script>
+</body>
+</html>
