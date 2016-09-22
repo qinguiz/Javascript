@@ -2,42 +2,35 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Event</title>
+	<title>preventDefault</title>
 </head>
 <body>
-	<div id="div1">
+	<div id="box">
 		<input type="button" id="btn1" value="按钮1" onclick="alert('Hello World')">
 		<input type="button" id="btn2" value="按钮2">
 		<input type="button" id="btn3" value="按钮3">
+		<a id="oA" href="Event.html">Go to</a>
 	</div>
 	<script>
-		function showMes(){
-			alert("sliby")
+		function showMes(ev){
+			alert("sliby");
+			ev.preventDefault(); //阻止默认事件
+			ev.stopPropagation(); //阻止事件传播（事件冒泡）
+		}
+		function showBoxMes(ev){
+			// ev.stopPropagation();
+			alert("This is a box");
 		}
 		//0级事件处理程序
 		var btn2 = document.querySelector("#btn2");
+		var box = document.querySelector("#box");
+		var oA = document.querySelector("#oA");
 		//添加时间
 		btn2.onclick = function (){
 			alert("Hello World2");
 		}
 		//删除事件
 		btn2.onclick = null;
-
-		//2级事件处理程序
-		// var btn3 = document.querySelector("#btn3");
-		// //添加事件
-		// btn3.addEventListener("click",showMes,false);
-		// btn3.addEventListener("click",function(){
-		// 	alert("我的脸就在这里，你来打我呀~,哎呦~好气噢~~~~")
-		// },false)
-		//删除事件
-		// btn3.removeEventListener("click"showMes);
-
-		//IE事件处理程序
-		//添加事件
-		// btn3.attachEvent("onclick",showMes);
-		// //删除事件
-		// btn3.detachEvent("onclick",showMes)
 
 		var eventUtil = {
 			addEvent:function(elem,type,func){
@@ -57,26 +50,12 @@
 				}else{
 					elem["on"+type] = null;
 				}
-			},
-			getEvent:function(ev){
-				return ev ? ev : window.event;
-			},
-			stopPropagation:function(ev){
-				if (ev.stopPropagation) {
-					ev.stopPropagation();
-				}else{
-					ev.cancelBubble = true;
-				}
-			},
-			preventDefault:function(ev){
-				if (ev.preventDefault) {
-					ev.preventDefault();
-				}else{
-					ev.returnValue = false;
-				}
 			}
 		}
-		eventUtil.addEvent(btn3,"click",showMes)
+		eventUtil.addEvent(btn3,"click",showMes);
+		eventUtil.addEvent(box,"click",showBoxMes);
+		eventUtil.addEvent(oA,"click",showMes)
+
 	</script>
 </body>
 </html>
