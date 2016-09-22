@@ -14,7 +14,7 @@
 		function showMes(){
 			alert("sliby")
 		}
-		//0级事件
+		//0级事件处理程序
 		var btn2 = document.querySelector("#btn2");
 		//添加时间
 		btn2.onclick = function (){
@@ -23,15 +23,43 @@
 		//删除事件
 		btn2.onclick = null;
 
-		//2级事件
-		var btn3 = document.querySelector("#btn3");
-		//添加事件
-		btn3.addEventListener("click",showMes,false);
-		btn3.addEventListener("click",function(){
-			alert("我的脸就在这里，你来打我呀~,哎呦~好气噢~~~~")
-		},false)
+		//2级事件处理程序
+		// var btn3 = document.querySelector("#btn3");
+		// //添加事件
+		// btn3.addEventListener("click",showMes,false);
+		// btn3.addEventListener("click",function(){
+		// 	alert("我的脸就在这里，你来打我呀~,哎呦~好气噢~~~~")
+		// },false)
 		//删除事件
 		// btn3.removeEventListener("click"showMes);
+
+		//IE事件处理程序
+		//添加事件
+		// btn3.attachEvent("onclick",showMes);
+		// //删除事件
+		// btn3.detachEvent("onclick",showMes)
+
+		var eventUtil = {
+			addEvent:function(elem,type,func){
+				if (elem.addEventListener) {
+					elem.addEventListener(type,func);
+				}else if(elem.attachEvent){
+					elem.attachEvent("on"+type,func);
+				}else{
+					elem["on"+type] = func;
+				}
+			},
+			removeEvent:function(elem,type,func){
+				if (elem.removeEventListener) {
+					elem.removeEventListener(type,func);
+				}else if(elem.detachEvent){
+					elem.detachEvent("on"+type,func);
+				}else{
+					elem["on"+type] = null;
+				}
+			}
+		}
+		eventUtil.addEvent(btn3,"click",showMes)
 	</script>
 </body>
 </html>
